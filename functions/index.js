@@ -2,6 +2,7 @@ const functions = require('firebase-functions');
 const express = require('express');
 const mongoose = require('mongoose');
 
+//Conexion a BD
 const mongoConfig = { useNewUrlParser:true }
 mongoose.connect('mongodb+srv://denix7:olakase@cluster0-vus3b.gcp.mongodb.net/test?retryWrites=true&w=majority', mongoConfig)
     .then(() => {
@@ -9,13 +10,19 @@ mongoose.connect('mongodb+srv://denix7:olakase@cluster0-vus3b.gcp.mongodb.net/te
     })
     .catch(err => console.log(err))
 
+//Iniciando Servidor
 const app = express();
 
-const Pets = require('./models/pets');
+const Pet = require('./models/pet');
 
 const createServer = () => {
     app.get('/pets', (req, res) => {
-        res.send('datos de prueba')
+        const pet = new Pet({
+            nombre: 'Jonsi',
+            tipo: 'Gato',
+            descripcion: 'No tiene vacunas'
+        })
+        pet.save()
     })
 
     app.post('/pets', (req, res) => {
