@@ -1,7 +1,17 @@
 const functions = require('firebase-functions');
 const express = require('express');
+const mongoose = require('mongoose');
+
+const mongoConfig = { useNewUrlParser:true }
+mongoose.connect('mongodb+srv://denix7:olakase@cluster0-vus3b.gcp.mongodb.net/test?retryWrites=true&w=majority', mongoConfig)
+    .then(() => {
+        console.log('Conexion a bd ATLAS ok')
+    })
+    .catch(err => console.log(err))
 
 const app = express();
+
+const Pets = require('./models/pets');
 
 const createServer = () => {
     app.get('/pets', (req, res) => {
