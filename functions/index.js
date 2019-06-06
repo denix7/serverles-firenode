@@ -21,8 +21,12 @@ const createServer = () => {
         res.send(result);
     })
 
-    app.post('/pets', (req, res) => {
-        res.send('Crear mascota')
+    app.post('/pets', async (req, res) => {
+        const { body } = req;
+        const pet = new Pet(body);
+
+        await pet.save()
+        res.sendStatus(204) 
     })
 
     app.get('/pets/:id/dar-alta', (req, res) => {
