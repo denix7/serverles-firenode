@@ -29,8 +29,10 @@ const createServer = () => {
         res.sendStatus(204) 
     })
 
-    app.get('/pets/:id/dar-alta', (req, res) => {
-        res.send('Dar alta mascota')
+    app.get('/pets/:id/dar-alta', async (req, res) => {
+        const { id } = req.params;
+        await Pet.deleteOne({ _id: id }).exec()
+        res.sendStatus(204)
     })
 
     return app;
