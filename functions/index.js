@@ -16,13 +16,9 @@ const app = express();
 const Pet = require('./models/pet');
 
 const createServer = () => {
-    app.get('/pets', (req, res) => {
-        const pet = new Pet({
-            nombre: 'Jonsi',
-            tipo: 'Gato',
-            descripcion: 'No tiene vacunas'
-        })
-        pet.save()
+    app.get('/pets', async (req, res) => {
+        const result = await Pet.find({}).exec()
+        res.send(result);
     })
 
     app.post('/pets', (req, res) => {
