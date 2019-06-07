@@ -1,14 +1,14 @@
 const functions = require('firebase-functions');
 const express = require('express');
 const mongoose = require('mongoose');
+const cors = require('cors');
 
 //Conexion a BD
 const mongoConfig = { useNewUrlParser:true }
-mongoose.connect('mongodb+srv://denix7:olakase@cluster0-vus3b.gcp.mongodb.net/test?retryWrites=true&w=majority', mongoConfig)
-    .then(() => {
-        console.log('Conexion a bd ATLAS ok')
-    })
-    .catch(err => console.log(err))
+
+const mongouri = `mongodb+srv://denix7:olakase@cluster0-vus3b.gcp.mongodb.net/test?retryWrites=true&w=majority`
+
+mongoose.connect(mongouri, mongoConfig)
 
 //Iniciando Servidor
 const app = express();
@@ -16,6 +16,12 @@ const app = express();
 const Pet = require('./models/pet');
 
 const createServer = () => {
+    app.use(cors ({ origin: true}))
+
+    app.get('/', (req, res) => {
+        res.status(200).send({message: "REST API Firebase whit Node Works!"});
+    })
+
     app.get('/pets', async (req, res) => {
         const result = await Pet.find({}).exec()
         res.send(result);
