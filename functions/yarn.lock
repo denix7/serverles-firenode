@@ -230,6 +230,10 @@
   dependencies:
     "@types/node" "*"
 
+"@types/lodash@^4.14.104":
+  version "4.14.161"
+  resolved "https://registry.yarnpkg.com/@types/lodash/-/lodash-4.14.161.tgz#a21ca0777dabc6e4f44f3d07f37b765f54188b18"
+
 "@types/lodash@^4.14.34":
   version "4.14.133"
   resolved "https://registry.yarnpkg.com/@types/lodash/-/lodash-4.14.133.tgz#430721c96da22dd1694443e68e6cec7ba1c1003d"
@@ -932,6 +936,13 @@ firebase-admin@~7.0.0:
     "@google-cloud/firestore" "^1.0.1"
     "@google-cloud/storage" "^2.3.0"
 
+firebase-functions-test@^0.1.6:
+  version "0.1.7"
+  resolved "https://registry.yarnpkg.com/firebase-functions-test/-/firebase-functions-test-0.1.7.tgz#c1f9b82157a1435e38c6707f0943447403ab1703"
+  dependencies:
+    "@types/lodash" "^4.14.104"
+    lodash "^4.17.5"
+
 firebase-functions@^2.2.0:
   version "2.3.1"
   resolved "https://registry.yarnpkg.com/firebase-functions/-/firebase-functions-2.3.1.tgz#6ad741cb5f38f4ed1a679607ffdbec68fa11127f"
@@ -1378,8 +1389,8 @@ lodash.isstring@^4.0.1:
   resolved "https://registry.yarnpkg.com/lodash.isstring/-/lodash.isstring-4.0.1.tgz#d527dfb5456eca7cc9bb95d5daeaf88ba54a5451"
 
 lodash.merge@^4.6.1:
-  version "4.6.1"
-  resolved "https://registry.yarnpkg.com/lodash.merge/-/lodash.merge-4.6.1.tgz#adc25d9cb99b9391c59624f379fbba60d7111d54"
+  version "4.6.2"
+  resolved "https://registry.yarnpkg.com/lodash.merge/-/lodash.merge-4.6.2.tgz#558aa53b43b661e1925a0afdfa36a9a1085fe57a"
 
 lodash.once@^4.0.0:
   version "4.1.1"
@@ -1388,6 +1399,10 @@ lodash.once@^4.0.0:
 lodash@^4.17.11, lodash@^4.6.1:
   version "4.17.11"
   resolved "https://registry.yarnpkg.com/lodash/-/lodash-4.17.11.tgz#b39ea6229ef607ecd89e2c8df12536891cac9b8d"
+
+lodash@^4.17.5:
+  version "4.17.20"
+  resolved "https://registry.yarnpkg.com/lodash/-/lodash-4.17.20.tgz#b44a9b6297bcb698f1c51a3545a2b3b368d59c52"
 
 long@^4.0.0:
   version "4.0.0"
